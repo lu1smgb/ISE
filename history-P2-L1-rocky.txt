@@ -1,0 +1,178 @@
+    1   02/10/24 18:21:40 sudo poweroff
+    2   09/10/24 18:05:35 lsblk
+    3   09/10/24 18:05:57 history
+    4   09/10/24 18:07:00 sudo fdisk /dev/sdb
+    5   09/10/24 18:07:24 lsblk
+    6   09/10/24 18:07:40 sudo fdisk /dev/sdb
+    7   09/10/24 18:08:06 lsblk
+    8   09/10/24 18:08:09 sudo fdisk /dev/sdc
+    9   09/10/24 18:08:17 lsblk
+   10   09/10/24 18:08:25 history
+   11   09/10/24 18:09:02 sudo dnf install mdadm
+   12   09/10/24 18:14:23 sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+   13   09/10/24 18:15:03 lsblk
+   14   09/10/24 18:16:02 sudo pvcreate /dev/md0
+   15   09/10/24 18:16:05 lsblk
+   16   09/10/24 18:16:17 sudo pvs
+   17   09/10/24 18:17:00 sudo vgcreate vg_raid1 /dev/md0
+   18   09/10/24 18:17:05 sudo pvs
+   19   09/10/24 18:18:19 lvcreate -n new_var -L 1.8G vg_raid1
+   20   09/10/24 18:18:26 sudo lvcreate -n new_var -L 1.8G vg_raid1
+   21   09/10/24 18:18:40 sudo vgs
+   22   09/10/24 18:20:26 sudo poweroff
+   23   09/10/24 18:21:23 history
+   24   09/10/24 18:23:25 dnf install cryptsetup -y
+   25   09/10/24 18:23:30 sudo dnf install cryptsetup -y
+   26   09/10/24 18:25:59 sudo cryptsetup luksFormat /dev/vg_raid1/new_var
+   27   09/10/24 18:31:12 sudo cryptsetup luksOpen /dev/vg_raid1/new_var vg_raid1-new_var_crypt
+   28   09/10/24 18:31:28 lsblk
+   29   09/10/24 18:31:57 man blkid
+   30   09/10/24 18:32:21 blkid | grep crypto
+   31   09/10/24 18:32:28 blkid
+   32   09/10/24 18:32:50 sudo blkid | grep crypto
+   33   09/10/24 18:37:00 sudo vi /etc/locale.conf
+   34   09/10/24 18:38:14 vash
+   35   09/10/24 18:38:16 bash
+   36   09/10/24 18:38:47 loadkeys es
+   37   09/10/24 18:38:52 sudo loadkeys es
+   38   09/10/24 18:39:09 sudo loadkeys en
+   39   09/10/24 18:39:12 sudo 
+   40   09/10/24 18:39:31 blkid | grep crypto > /etc/crypttab
+   41   09/10/24 18:40:07 sudo blkid | grep crypto > /etc/crypttab
+   42   09/10/24 18:40:24 sudo su
+   43   09/10/24 18:47:29 lsblk
+   44   09/10/24 18:48:17 loadkeys us
+   45   09/10/24 18:48:21 sudo loadkeys us
+   46   09/10/24 18:48:37 lsblk
+   47   09/10/24 18:49:45 sudo mkfs -t xfs /dev/mapper/vg_raid1-new_var_crypt
+   48   09/10/24 18:50:09 lsblk -l
+   49   09/10/24 18:50:43 lsblk -f
+   50   09/10/24 19:02:07 mkdir /new_var
+   51   09/10/24 19:02:10 sudo mkdir /new_var
+   52   09/10/24 19:02:43 sudo mount /dev/mapper/vg_rapd1-new_var_crypt /new_var
+   53   09/10/24 19:02:52 sudo mount /dev/mapper/vg_raid1-new_var_crypt /new_var
+   54   09/10/24 19:03:03 sudo systemctl isolate rescue
+   55   09/10/24 19:10:39 lsblk
+   56   09/10/24 19:10:56 history > history-P1-L3-luisgb.txt
+   57   09/10/24 19:11:00 history
+   58   09/10/24 19:11:39 lsblk
+   59   09/10/24 19:12:07 systemctl isolate rescue
+   60   09/10/24 19:12:15 sudo systemctl isolate rescue
+   61   09/10/24 19:13:53 lsblk
+   62   09/10/24 19:14:09 ls -laZ /var
+   63   09/10/24 19:14:15 ls -laZ /var_old
+   64   09/10/24 19:14:22 ls -laZ /new_var
+   65   09/10/24 19:14:32 history > history-P1-L3-luisgb.txt
+   66   09/10/24 19:15:04 sudo poweroff
+   67   22/10/24 11:49:24 history
+   68   22/10/24 11:49:41 sudo vi /etc/bashrc
+   69   22/10/24 11:49:55 exit
+   70   22/10/24 11:38:31 history
+   71   22/10/24 11:39:44 loadkeys us
+   72   22/10/24 11:39:48 sudo loadkeys us
+   73   22/10/24 11:41:03 ls -l /etc/locale.conf
+   74   22/10/24 11:41:11 vi /etc/locale.conf
+   75   22/10/24 11:41:29 visudo /etc/locale.conf
+   76   22/10/24 11:41:33 sudo visudo /etc/locale.conf
+   77   22/10/24 11:43:14 find .bashrc
+   78   22/10/24 11:43:35 cat .bashrc
+   79   22/10/24 11:44:01 ls -la /usr/
+   80   22/10/24 11:44:20 ls -la /etc/.bash*
+   81   22/10/24 11:44:25 ls -la /etc/
+   82   22/10/24 11:45:13 ls -la /etc/.bashrc
+   83   22/10/24 11:45:26 ls -la /etc/profile
+   84   22/10/24 11:45:30 cat /etc/profile
+   85   22/10/24 11:45:45 vi /etc/profile
+   86   22/10/24 11:46:18 vi /etc/bash.bashrc
+   87   22/10/24 11:46:36 vi history-P1-L3-luisgb.txt 
+   88   22/10/24 11:47:35 cat .bash_profile
+   89   22/10/24 11:47:39 cat .bash_rc
+   90   22/10/24 11:47:41 cat .bashrc
+   91   22/10/24 11:47:54 cat /etc/bashrc
+   92   22/10/24 11:47:59 vi /etc/bashrc
+   93   22/10/24 11:48:31 sudo vi /etc/bashrc
+   94   22/10/24 11:49:07 bash
+   95   22/10/24 11:50:02 reboot
+   96   22/10/24 11:50:07 sudo reboot
+   97   22/10/24 11:57:23 localectl list-keymaps
+   98   22/10/24 11:58:00 localectl set-keymap en-US
+   99   22/10/24 11:58:05 localectl set-keymap us-US
+  100   22/10/24 11:58:36 localectl set-keymap | grep en
+  101   22/10/24 11:58:43 localectl set-keymap | grep
+  102   22/10/24 11:58:46 localectl set-keymap | grep ''help
+  103   22/10/24 11:58:49 localectl set-keymap | grep --help
+  104   22/10/24 11:59:05 man grep
+  105   22/10/24 12:00:00 clear
+  106   22/10/24 12:00:37 localectl set-keymap us
+  107   22/10/24 12:00:40 sudo localectl set-keymap us
+  108   22/10/24 12:00:56 localectl status
+  109   22/10/24 12:03:49 ssh-keygen -t ed25519 -C "lu1smgb.gacc@gmail.com"
+  110   22/10/24 12:04:39 ssh-add .ssh/github
+  111   22/10/24 12:04:42 sudo ssh-add .ssh/github
+  112   22/10/24 12:05:01 ssh-agent
+  113   22/10/24 12:05:05 ssh-agent --help
+  114   22/10/24 12:05:41 eval "$(ssh-agent -s)"
+  115   22/10/24 12:05:53 ssh-add ~/.ssh/github
+  116   22/10/24 12:06:11 cat .ssh/github.pub
+  117   22/10/24 12:08:52 git clone git@github.com:lu1smgb/ISE
+  118   22/10/24 12:08:56 dnf
+  119   22/10/24 12:09:05 sudo dnf install git
+  120   22/10/24 12:11:49 git clone git@github.com:lu1smgb/ISE
+  121   22/10/24 12:13:28 sudo systemctl restart chronyd
+  122   22/10/24 12:13:38 systemctl status chronyd
+  123   22/10/24 12:13:50 chronyc tracking
+  124   22/10/24 12:14:37 sudo timedatectl set-time "12:13"
+  125   22/10/24 12:14:58 cat /etc/chrony.conf
+  126   22/10/24 12:15:09 vi /etc/chrony.
+  127   22/10/24 12:15:14 vi /etc/chrony.conf
+  128   22/10/24 12:16:15 timedatectl
+  129   22/10/24 12:17:08 sudo timedatectl set-timezone Europe/Madrid
+  130   22/10/24 12:17:17 poweroff
+  131   22/10/24 12:17:20 sudo poweroff
+  132   22/10/24 12:25:24 ip addr
+  133   22/10/24 12:26:27 ip addr add 192.168.56.110/24 dev enp0s8
+  134   22/10/24 12:26:32 sudo ip addr add 192.168.56.110/24 dev enp0s8
+  135   22/10/24 12:26:46 ip link set enp0s8 up
+  136   22/10/24 12:26:52 sudo ip link set enp0s8 up
+  137   22/10/24 12:26:59 ping 192.168.56.105
+  138   22/10/24 12:32:27 ls -l /etc/sysconfig/network-scripts
+  139   22/10/24 12:33:25 ls -l /etc/sysconfig/
+  140   22/10/24 12:33:44 vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
+  141   22/10/24 12:34:48 sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
+  142   22/10/24 12:35:52 systemctl restart NetworkManager
+  143   22/10/24 12:35:56 sudo systemctl restart NetworkManager
+  144   22/10/24 12:36:04 ping 192.168.56.105
+  145   22/10/24 12:36:17 ip addr
+  146   22/10/24 12:37:54 ping 192.168.56.110
+  147   22/10/24 12:38:37 ping 192.168.56.105
+  148   22/10/24 12:43:29 systemctl status sshd
+  149   22/10/24 12:43:55 ssh luisgb@192.168.56.105
+  150   22/10/24 12:45:31 poweroff
+  151   22/10/24 12:45:34 sudo poweroff
+  152   22/10/24 12:49:27 vi /etc/ssh/sshd_config
+  153   22/10/24 12:49:39 sudo vi /etc/ssh/sshd_config
+  154   22/10/24 12:50:05 systemctl restart sshd
+  155   22/10/24 12:50:08 sudo systemctl restart sshd
+  156   22/10/24 12:52:20 ssh root@192.168.56.105
+  157   22/10/24 12:52:52 ss -tuln
+  158   22/10/24 12:54:14 ssh luisgb@192.168.56.105 -p 22022
+  159   22/10/24 12:55:16 dnf install semanage
+  160   22/10/24 12:55:23 sudo dnf install semanage
+  161   22/10/24 12:55:39 sudo dnf provides semanage
+  162   22/10/24 12:55:57 dnf install policycoreutils-python-utils-xxx
+  163   22/10/24 12:56:01 sudo dnf install policycoreutils-python-utils-xxx
+  164   22/10/24 12:56:13 sudo dnf install policycoreutils-python-utils
+  165   22/10/24 12:56:53 sudo vi /etc/ssh/sshd_config
+  166   22/10/24 12:57:15 semanage port -l | grep ssh
+  167   22/10/24 12:57:18 sudo semanage port -l | grep ssh
+  168   22/10/24 12:57:38 sudo semanage port -a -t ssh_port_t -p tcp 22022
+  169   22/10/24 12:57:56 systemctl restart sshd
+  170   22/10/24 12:57:59 sudo systemctl restart sshd
+  171   22/10/24 12:58:21 firewall-cmd --add-port 22022/tcp --permanent
+  172   22/10/24 12:58:25 sudo firewall-cmd --add-port 22022/tcp --permanent
+  173   22/10/24 12:59:30 sudo firewall-cmd --reload
+  174   22/10/24 13:00:18 ls -la
+  175   22/10/24 13:00:27 rm archivo.txt 
+  176   22/10/24 13:01:17 sudo poweroff
+  177   23/10/24 17:34:51 history
+  178   23/10/24 17:35:18 history > history-P2-L1-rocky.txt
