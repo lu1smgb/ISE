@@ -1,0 +1,65 @@
+    1   02/ 10/ 24 12:21:40 sudo poweroff
+    2   09/ 10/ 24 12:05:35 lsblk
+    3   09/ 10/ 24 12:05:57 history
+    4   09/ 10/ 24 12:07:00 sudo fdisk /dev/sdb
+    5   09/ 10/ 24 12:07:24 lsblk
+    6   09/ 10/ 24 12:07:40 sudo fdisk /dev/sdb
+    7   09/ 10/ 24 12:08:06 lsblk
+    8   09/ 10/ 24 12:08:09 sudo fdisk /dev/sdc
+    9   09/ 10/ 24 12:08:17 lsblk
+   10   09/ 10/ 24 12:08:25 history
+   11   09/ 10/ 24 12:09:02 sudo dnf install mdadm
+   12   09/ 10/ 24 12:14:23 sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+   13   09/ 10/ 24 12:15:03 lsblk
+   14   09/ 10/ 24 12:16:02 sudo pvcreate /dev/md0
+   15   09/ 10/ 24 12:16:05 lsblk
+   16   09/ 10/ 24 12:16:17 sudo pvs
+   17   09/ 10/ 24 12:17:00 sudo vgcreate vg_raid1 /dev/md0
+   18   09/ 10/ 24 12:17:05 sudo pvs
+   19   09/ 10/ 24 12:18:19 lvcreate -n new_var -L 1.8G vg_raid1
+   20   09/ 10/ 24 12:18:26 sudo lvcreate -n new_var -L 1.8G vg_raid1
+   21   09/ 10/ 24 12:18:40 sudo vgs
+   22   09/ 10/ 24 12:20:26 sudo poweroff
+   23   09/ 10/ 24 12:21:23 history
+   24   09/ 10/ 24 12:23:25 dnf install cryptsetup -y
+   25   09/ 10/ 24 12:23:30 sudo dnf install cryptsetup -y
+   26   09/ 10/ 24 12:25:59 sudo cryptsetup luksFormat /dev/vg_raid1/new_var
+   27   09/ 10/ 24 12:31:12 sudo cryptsetup luksOpen /dev/vg_raid1/new_var vg_raid1-new_var_crypt
+   28   09/ 10/ 24 12:31:28 lsblk
+   29   09/ 10/ 24 12:31:57 man blkid
+   30   09/ 10/ 24 12:32:21 blkid | grep crypto
+   31   09/ 10/ 24 12:32:28 blkid
+   32   09/ 10/ 24 12:32:50 sudo blkid | grep crypto
+   33   09/ 10/ 24 12:37:00 sudo vi /etc/locale.conf
+   34   09/ 10/ 24 12:38:14 vash
+   35   09/ 10/ 24 12:38:16 bash
+   36   09/ 10/ 24 12:38:47 loadkeys es
+   37   09/ 10/ 24 12:38:52 sudo loadkeys es
+   38   09/ 10/ 24 12:39:09 sudo loadkeys en
+   39   09/ 10/ 24 12:39:12 sudo 
+   40   09/ 10/ 24 12:39:31 blkid | grep crypto > /etc/crypttab
+   41   09/ 10/ 24 12:40:07 sudo blkid | grep crypto > /etc/crypttab
+   42   09/ 10/ 24 12:40:24 sudo su
+   43   09/ 10/ 24 12:47:29 lsblk
+   44   09/ 10/ 24 12:48:17 loadkeys us
+   45   09/ 10/ 24 12:48:21 sudo loadkeys us
+   46   09/ 10/ 24 12:48:37 lsblk
+   47   09/ 10/ 24 12:49:45 sudo mkfs -t xfs /dev/mapper/vg_raid1-new_var_crypt
+   48   09/ 10/ 24 12:50:09 lsblk -l
+   49   09/ 10/ 24 12:50:43 lsblk -f
+   50   09/ 10/ 24 13:02:07 mkdir /new_var
+   51   09/ 10/ 24 13:02:10 sudo mkdir /new_var
+   52   09/ 10/ 24 13:02:43 sudo mount /dev/mapper/vg_rapd1-new_var_crypt /new_var
+   53   09/ 10/ 24 13:02:52 sudo mount /dev/mapper/vg_raid1-new_var_crypt /new_var
+   54   09/ 10/ 24 13:03:03 sudo systemctl isolate rescue
+   55   09/ 10/ 24 13:10:39 lsblk
+   56   09/ 10/ 24 13:10:56 history > history-P1-L3-luisgb.txt
+   57   09/ 10/ 24 13:11:00 history
+   58   09/ 10/ 24 13:11:39 lsblk
+   59   09/ 10/ 24 13:12:07 systemctl isolate rescue
+   60   09/ 10/ 24 13:12:15 sudo systemctl isolate rescue
+   61   09/ 10/ 24 13:13:53 lsblk
+   62   09/ 10/ 24 13:14:09 ls -laZ /var
+   63   09/ 10/ 24 13:14:15 ls -laZ /var_old
+   64   09/ 10/ 24 13:14:22 ls -laZ /new_var
+   65   09/ 10/ 24 13:14:32 history > history-P1-L3-luisgb.txt
