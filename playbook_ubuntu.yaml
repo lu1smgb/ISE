@@ -1,0 +1,31 @@
+- name: Configuracion de HTTP
+  hosts: all
+  remote_user: luisgb
+  become: yes
+
+  tasks:
+    - name: Instalar Apache2 en Debian
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] == 'Debian'
+  
+    - name: Instalar HTTPD en Rocky
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: Iniciar Apache2 en Debian
+      ansible.builtin.service:
+        name: apache2
+        state: started
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: Iniciar HTTPD en Rocky
+      ansible.builtin.service:
+        name: httpd
+        state: started
+      when: ansible_facts['os_family'] == 'RedHat'
+

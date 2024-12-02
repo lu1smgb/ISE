@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor RAID Status
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/luisgb/ISE/mon-raid.py
+
+[Install]
+WantedBy=multi-user.target
